@@ -1,8 +1,8 @@
 # AirPong: Discrete-Time State-Feedback Control, Observer Design & Event-Triggered Optimization
 <p align="center">
-  <img src="./images/AirPong.jpg" width="90%" alt="Airpong System">
+  <img src="./images/AirPong.jpg" width="50%" alt="Airpong System">
   <br>
-  <em>Figure 2: Photo of the Airpong System.</em>
+  <em>Figure 1: Photo of the Airpong System.</em>
 </p>
 ## Description
 This repository provides a comprehensive framework for the design, simulation, and Hardware-in-the-Loop (HIL) implementation of a digital control strategy for a pneumatic levitation system named **AirPong**. 
@@ -46,7 +46,11 @@ $$\begin{bmatrix} X(k+1) \\ \hat{X}(k+1) \\ X_i(k+1) \end{bmatrix} = \begin{bmat
 The controller gain matrix $\tilde{K} = \begin{bmatrix} K & K_i \end{bmatrix}$ was optimized using a discrete Linear Quadratic Regulator (LQR). The weighting matrix $Q$ was tuned based on the maximum allowable state errors:
 $$Q = \begin{bmatrix} \frac{1}{0.5^2} & 0 & 0 \\ 0 & \frac{1}{10^2} & 0 \\ 0 & 0 & 2 \end{bmatrix}$$
 
----
+<p align="center">
+  <img src="./images/theorical_system.png" width="90%" alt="Theorical System">
+  <br>
+  <em>Figure 2: Theorical closed-loop architecture featuring state-feedback, Luenberger observer, and reference model comparison.</em>
+</p>
 
 ## 🛠️ Simulink Model & Architecture
 
@@ -56,9 +60,9 @@ The physical system is modeled and evaluated directly in Simulink (`sim/Airpong.
 The block diagram couples the physical Arduino-interfaced plant (`airpong`) with a real-time theoretical simulator (`simu`) running in parallel to benchmark expected vs. real transient behaviors.
 
 <p align="center">
-  <img src="./images/airpong_full_system.png" width="90%" alt="Full Simulink Control Loop">
+  <img src="./images/airpong_full_system.png" width="90%" alt="Airpong Full System">
   <br>
-  <em>Figure 1: Closed-loop architecture featuring state-feedback, Luenberger observer, and reference model comparison.</em>
+  <em>Figure 3: Closed-loop architecture featuring state-feedback, Luenberger observer, and reference model comparison.</em>
 </p>
 
 ### Low-Level Driver (Inside the AirPong Brick)
@@ -69,10 +73,8 @@ The hardware subsystem encapsulates low-level drivers communicating with the phy
 <p align="center">
   <img src="./images/airpong_arduino_brick.png" width="90%" alt="Arduino Drivers">
   <br>
-  <em>Figure 2: Low-level sensor linearization and PWM hardware mapping.</em>
+  <em>Figure 4: Low-level sensor linearization and PWM hardware mapping.</em>
 </p>
-
----
 
 ## Performance Optimization: Event-Triggered Control Results
 
@@ -86,9 +88,7 @@ Over a benchmark of **2000 execution periods**, adjusting the system response sp
 | **Medium (Moyen)** | 1 <br> 2 <br> 3 | 859 <br> 332 <br> 192 | **42.95%** <br> **16.60%** <br> **9.60%** |
 | **Fast (Rapide)** | 1 <br> 2 <br> 3 | 1425 <br> 242 <br> 1203 | **71.25%** <br> **12.10%** <br> **60.15%** |
 
----
-
-## 📂 Project Structure
+##  Project Structure
 - `src/`
     - `control_synthesis.m`: Core MATLAB script computing similarity matrices, checking observability/controllability, and solving discrete LQR equations.
     - `trace_results.m`: Plotting utility for transient responses, tracking error tracking, and scope export.
@@ -109,5 +109,5 @@ Over a benchmark of **2000 execution periods**, adjusting the system response sp
 
 ---
 
-## 🎓 Credits
+## Credits
 This project was developed as part of the advanced automated control systems curriculum at **Télécom Physique Strasbourg**.
