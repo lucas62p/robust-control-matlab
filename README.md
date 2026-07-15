@@ -82,9 +82,9 @@ To optimize microcontroller resources and reduce serial/bus traffic, we implemen
 
 Over a benchmark of **2000 execution periods**, adjusting the system response speed and the dead-zone threshold $\epsilon$ yields major computational savings:
 
-| System Dynamics | Threshold $\epsilon$ (cm) | Transmitted Commands | CPU/Bus Bandwidth Saved (%) |
+| System Dynamics | Threshold $\epsilon$ (cm) | Transmitted Commands | CPU/Bus Bandwidth used (%) |
 | :---: | :---: | :---: | :---: |
-| **Slow (Lent)** | 1 <br> 2 <br> 3 | 138 <br> 138 <br> 192 | **42.95%** <br> **16.60%** <br> **9.60%** |
+| **Slow (Lent)** | 1 <br> 2 <br> 3 | 138 <br> 138 <br> 192 | **93.10%** <br> **93.10%** <br> **90.40%** |
 | **Medium (Moyen)** | 1 <br> 2 <br> 3 | 859 <br> 332 <br> 192 | **42.95%** <br> **16.60%** <br> **9.60%** |
 | **Fast (Rapide)** | 1 <br> 2 <br> 3 | 1425 <br> 242 <br> 1203 | **71.25%** <br> **12.10%** <br> **60.15%** |
 
